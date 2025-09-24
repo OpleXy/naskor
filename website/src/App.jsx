@@ -6,7 +6,7 @@ function App() {
     <div className="app">
       <header className="header">
         <h1>NasjonalKort</h1>
-        <p className="subtitle">Dette er en visningsnettsted for et beredskapssystem for helsevesenet ved strøm- og internettbrudd.</p>
+        <p className="subtitle">Backupsystem for pasientjornaler i nedetid</p>
       </header>
 
       <main className="main-content">
@@ -76,7 +76,7 @@ function App() {
                 </div>
                 <div className="scanner-image">
                   <img src="/nasjonalkort.png" alt="NasjonalKort logo" />
-                  <p className="scanner-label">NasjonalKort</p>
+                  <p className="scanner-label">NasjonalKort - Backupsystem for pasientjornaler i nedetid</p>
                 </div>
               </div>
             </li>
