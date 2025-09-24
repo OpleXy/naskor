@@ -10,19 +10,19 @@
 .header {
   background: linear-gradient(135deg, #2c5aa0 0%, #1e3a8a 100%);
   color: white;
-  padding: 2rem 2rem;
+  padding: 1rem 2rem;
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .header h1 {
-  font-size: 3rem;
-  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
   font-weight: 700;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 0;
   opacity: 0.9;
   max-width: none;
@@ -61,6 +61,22 @@
   margin: 1rem 0 0.5rem 0;
 }
 
+.section h4 {
+  color: #374151;
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.8rem 0;
+  font-weight: 600;
+}
+
+.tech-list {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.tech-list li {
+  margin-bottom: 0.6rem;
+}
+
 .section p {
   margin-bottom: 1rem;
   text-align: justify;
@@ -86,10 +102,64 @@
 
 .youtube-embed iframe {
   width: 100%;
-  height: 450px;
-  max-width: 800px;
+  height: 600px;
+  max-width: 1000px;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-examples {
+  display: flex;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card-image {
+  text-align: center;
+  max-width: 300px;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.card-label {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #2c5aa0;
+}
+
+.scanner-example {
+  display: flex;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.scanner-image {
+  text-align: center;
+  max-width: 400px;
+}
+
+.scanner-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.scanner-label {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #2c5aa0;
 }
 
 @media (max-width: 768px) {
@@ -120,7 +190,19 @@
 
   .youtube-embed iframe {
     width: 100%;
-    height: 315px;
+    height: 400px;
+  }
+
+  .card-examples {
+    gap: 1rem;
+  }
+
+  .card-image {
+    max-width: 250px;
+  }
+
+  .scanner-image {
+    max-width: 300px;
   }
 }
 

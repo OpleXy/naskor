@@ -37,10 +37,48 @@ function App() {
             <li>
               <h3>Desentralisert datalagring</h3>
               <p>Et kort som fungerer som pasientjournal, der helseinformasjon kan lagres og oppdateres, og kan leses og skrives til av en håndholdt skanner.</p>
+
+              <h4>Datainnlagringsteknologier for kortet</h4>
+              <ul className="tech-list">
+                <li><strong>NFC-kort (Near Field Communication)</strong> - Lagrer 4-8KB data (nok for kritisk helseinformasjon). Krever ingen strøm og drives av skanneren. Brukes i bankkort og kollektivtransportkort.</li>
+                <li><strong>RFID UHF-brikker</strong> - Lengre rekkevidde og kan lagre mer data enn NFC. Fungerer uten batterier og kan kommunisere på avstand.</li>
+                <li><strong>Bluetooth Low Energy (BLE) beacons</strong> - Lagrer mer data og har lang batterilevetid. Krever kryptering for sikkerhet.</li>
+              </ul>
+
+              <div className="card-examples">
+                <div className="card-image">
+                  <img src="/kort/forside.png" alt="Forside av helsekort" />
+                  <p className="card-label">Forside</p>
+                </div>
+                <div className="card-image">
+                  <img src="/kort/bakside.png" alt="Bakside av helsekort" />
+                  <p className="card-label">Bakside</p>
+                </div>
+              </div>
             </li>
             <li>
               <h3>Skanner</h3>
               <p>En håndholdt enhet brukt av helsepersonell for å lese og oppdatere pasientdata på kortet, selv uten tilgang til strøm eller internett.</p>
+
+              <h4>Teknologi for skanneren</h4>
+              <ul className="tech-list">
+                <li>Håndholdt enhet med NFC/RFID leser/skriver.</li>
+                <li>Lokal datalagring (SSD).</li>
+                <li>Lang batterilevetid, med solcellepanel for lading.</li>
+                <li>Enkel skjerm og tastatur.</li>
+                <li>Mesh-nettverk mellom skannere for lokal synkronisering.</li>
+              </ul>
+
+              <div className="scanner-example">
+                <div className="scanner-image">
+                  <img src="/scanner.png" alt="Håndholdt skanner for helsekort" />
+                  <p className="scanner-label">Håndholdt skanner</p>
+                </div>
+                <div className="scanner-image">
+                  <img src="/nasjonalkort.png" alt="NasjonalKort logo" />
+                  <p className="scanner-label">NasjonalKort</p>
+                </div>
+              </div>
             </li>
           </ul>
         </section>
