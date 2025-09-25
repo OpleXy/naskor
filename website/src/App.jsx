@@ -26,14 +26,14 @@ function App() {
         </div>
       </header>
 
-      <section className="panel">
+      <div className="panel" style={{marginBottom: '20px'}}>
         <div className="hero-left">
           <h2>Backupsystem for pasientjournaler — robust og rask</h2>
           <p className="desc">Vår løsning sikrer tilgang til kritisk helseinformasjon selv under alvorlige driftsbrudd.</p>
         </div>
         <div className="hero-right hero-actions">
         </div>
-      </section>
+      </div>
 
       <main>
         <section>
