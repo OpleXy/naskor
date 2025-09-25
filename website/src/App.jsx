@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import YouTubeEmbed from './components/YouTubeEmbed'
+import HealthCard3D from './components/HealthCard3D'
 
 function App() {
   const [activeTab, setActiveTab] = useState('kort')
-  const [activeSection, setActiveSection] = useState('')
 
   return (
     <div className="app">
@@ -30,25 +30,20 @@ function App() {
           <YouTubeEmbed url="https://www.youtube.com/watch?v=2aCBG-5Q58w" />
         </section>
 
-        <section id="project-overview" className="section hero-section">
-          <div className="hero-content">
-            <h1 className="hero-title">Beredskapssystem for helsevesenet ved strøm- og internettbrudd</h1>
-            <p className="hero-description">Dette prosjektet er vårt bidrag til oppgave 1 i Your Extreme 2025. Vi utvikler et beredskapssystem som sikrer at helsevesenet og kritisk helseinformasjon er tilgjengelig under omfattende strøm- og internettbrudd.</p>
-            <div className="key-features">
-              <div className="feature-item">
-                <span className="feature-icon">⚡</span>
-                <span>Fungerer uten strøm</span>
-              </div>
-              <div className="feature-item">
-                <span className="feature-icon">🌐</span>
-                <span>Fungerer uten internett</span>
-              </div>
-              <div className="feature-item">
-                <span className="feature-icon">📱</span>
-                <span>Fungerer uten mobilnettverk</span>
-              </div>
-            </div>
-          </div>
+        {/* NY SEKSJON FOR 3D HELSEKORTET */}
+        <section id="healthCard" className="section">
+          <header>
+            <h2>3D Visning av Helsekortet</h2>
+          </header>
+          <p>Her kan du se en interaktiv 3D-modell av helsekortet som vil bli brukt i beredskapssystemet vårt. Kortet inneholder kritisk helseinformasjon som kan aksesseres uten strøm eller internett.</p>
+          <HealthCard3D />
+        </section>
+
+        <section id="projectDescription" className="section">
+          <header>
+            <h1>Beredskapssystem for helsevesenet ved strøm- og internettbrudd</h1>
+          </header>
+          <p>Dette prosjektet er vårt bidrag til oppgave 1 i Your Extreme 2025. Vi utvikler et beredskapssystem som sikrer at helsevesenet og kritisk helseinformasjon er tilgjengelig under omfattende strøm- og internettbrudd. Løsningen er designet for å fungere uten strøm, mobilnettverk eller internett, og gir helsepersonell tilgang til essensielle pasientjournaler og medisinske data under ekstreme forhold.</p>
         </section>
 
         <section id="problem" className="section">
@@ -88,8 +83,6 @@ function App() {
 
           {activeTab === 'kort' && (
             <div className="tech-content">
-              <ul>
-            <li>
               <h3>Desentralisert datalagring</h3>
               <p>Et kort som fungerer som pasientjournal, der helseinformasjon kan lagres og oppdateres, og kan leses og skrives til av en håndholdt skanner.</p>
 
@@ -139,39 +132,33 @@ function App() {
                   <p className="card-label">Bakside</p>
                 </div>
               </div>
-            </li>
-              </ul>
             </div>
           )}
 
           {activeTab === 'skanner' && (
             <div className="tech-content">
-              <ul>
-                <li>
-                  <h3>Skanner</h3>
-                  <p>En håndholdt enhet brukt av helsepersonell for å lese og oppdatere pasientdata på kortet, selv uten tilgang til strøm eller internett.</p>
+              <h3>Read&Write (Skanner)</h3>
+              <p>En håndholdt enhet brukt av helsepersonell for å lese og oppdatere pasientdata på kortet, selv uten tilgang til strøm eller internett.</p>
 
-                  <h4>Teknologi for skanneren</h4>
-                  <ul className="tech-list">
-                    <li>Håndholdt enhet med NFC/RFID leser/skriver.</li>
-                    <li>Lokal datalagring (SSD).</li>
-                    <li>Lang batterilevetid, med solcellepanel for lading.</li>
-                    <li>Enkel skjerm og tastatur.</li>
-                    <li>Mesh-nettverk mellom skannere for lokal synkronisering.</li>
-                  </ul>
-
-                  <div className="scanner-example">
-                    <div className="scanner-image">
-                      <img src="/scanner.png" alt="Håndholdt skanner for helsekort" />
-                      <p className="scanner-label">Håndholdt skanner</p>
-                    </div>
-                    <div className="scanner-image">
-                      <img src="/nasjonalkort.png" alt="NasjonalKort logo" />
-                      <p className="scanner-label">NasjonalKort - Backupsystem for pasientjornaler i nedetid</p>
-                    </div>
-                  </div>
-                </li>
+              <h4>Teknologi for skanneren</h4>
+              <ul className="tech-list">
+                <li>Håndholdt enhet med NFC/RFID leser/skriver</li>
+                <li>Lokal datalagring (SSD)</li>
+                <li>Lang batterilevetid, med solcellepanel for lading</li>
+                <li>Enkel skjerm og tastatur</li>
+                <li>Mesh-nettverk mellom skannere for lokal synkronisering</li>
               </ul>
+
+              <div className="scanner-example">
+                <div className="scanner-image">
+                  <img src="/scanner.png" alt="Håndholdt skanner for helsekort" />
+                  <p className="scanner-label">Håndholdt skanner</p>
+                </div>
+                <div className="scanner-image">
+                  <img src="/nasjonalkort.png" alt="NasjonalKort logo" />
+                  <p className="scanner-label">NasjonalKort - Backupsystem for pasientjornaler i nedetid</p>
+                </div>
+              </div>
             </div>
           )}
         </section>

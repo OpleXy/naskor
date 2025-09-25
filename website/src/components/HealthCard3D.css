@@ -1,0 +1,149 @@
+.health-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  background: transparent;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.health-card-container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.health-card-container p {
+  margin-bottom: 20px;
+  color: #aaa;
+  text-align: center;
+  max-width: 600px;
+}
+
+.card-scene {
+  width: 400px;
+  height: 250px;
+  perspective: 1200px;
+  margin-bottom: 30px;
+  cursor: grab;
+}
+
+.card-scene:active {
+  cursor: grabbing;
+}
+
+.card-3d {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg) rotateX(0deg);
+}
+
+.card-side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1); /* Subtil kant for bedre definisjon */
+}
+
+.card-front {
+  background: #1a1a1a;
+}
+
+.card-back {
+  background: #1a1a1a;
+  transform: rotateY(180deg);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.rotation-info {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #888;
+  text-align: center;
+}
+
+.speed-info {
+  font-size: 0.8rem;
+  color: #00d4ff;
+  margin-top: 5px;
+}
+
+/* Forbedret 3D-effekt med bedre lyssetting */
+.card-3d {
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Smooth hover-effekter */
+.card-scene:hover .card-3d {
+  filter: drop-shadow(0 15px 30px rgba(0, 212, 255, 0.2));
+}
+
+/* Responsivt design */
+@media (max-width: 480px) {
+  .card-scene {
+    width: 320px;
+    height: 200px;
+  }
+  
+  .health-card-container h1 {
+    font-size: 1.8rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Spesielle effekter for optimalisert visning */
+.card-side {
+  transition: filter 0.3s ease;
+}
+
+/* Mindre prominent boks-skygge når vi ser på kortsiden */
+.card-3d[style*="rotateY(90deg)"], 
+.card-3d[style*="rotateY(270deg)"] {
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+}
