@@ -29,7 +29,7 @@ function App() {
         </div>
       </header>
 
-      <section className="hero-card">
+      <section className="panel">
         <div className="hero-left">
           <h2>Backupsystem for pasientjournaler — robust og rask</h2>
           <p className="desc">Vår løsning sikrer tilgang til kritisk helseinformasjon selv under alvorlige driftsbrudd.</p>
@@ -39,20 +39,54 @@ function App() {
       </section>
 
       <main>
-        <section className="problem" aria-labelledby="problem-heading">
-          <h3 id="problem-heading">Hva skjer når strøm og internett svikter?</h3>
-          <p>Vår løsning sikrer tilgang til kritisk helseinformasjon selv under alvorlige driftsbrudd.</p>
+        <section>
+         
+          <div className="panel">
+             <h3 style={{margin: '6px 0'}}>Problemstilling</h3>
+            <h4>Hva skjer når strøm og internett svikter?</h4>
+            <p style={{color: 'var(--muted)'}}>
+              Vår løsning sikrer tilgang til kritisk helseinformasjon selv under alvorlige driftsbrudd.
+            </p>
+          </div>
         </section>
 
         <section>
-          <h3 style={{margin: '6px 0'}}>Teknologi og løsning</h3>
+         
+
+          <div className="panel" style={{marginBottom: '20px'}}>
+             <h3 style={{margin: '6px 0'}}>Teknologi og løsning</h3>
           <p style={{color: 'var(--muted)', marginBottom: '20px'}}>
             Løsningen vår består av to hovedkomponenter som arbeider sammen for å sikre tilgang til kritisk helseinformasjon:
           </p>
 
-          <div className="tech-details" style={{background: 'var(--card)', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.03)', marginBottom: '20px'}}>
+
+            <div className="solution">
+            <div className="panel" aria-label="Kortet">
+              <h4>Kortet</h4>
+              <div className="card-visual">
+                <img src="/kort.png" alt="NFC Helsekort" style={{height: '100%', objectFit: 'cover', borderRadius: '10px'}} />
+              </div>
+              <p style={{marginTop: '12px'}}>
+                Kortet er en fysisk/elektronisk enhet designet for offline-tilgang til pasientjournaler.
+                Lagring, kryptering og rask lesetilgang er sentralt.
+              </p>
+            </div>
+
+            <div className="panel" aria-label="Skanneren">
+              <h4>Skanneren</h4>
+              <div className="card-visual">
+                <img src="/workflow.png" alt="Arbeidsflyt skanner" style={{height: '100%', objectFit: 'cover', borderRadius: '10px'}} />
+              </div>
+              <p style={{marginTop: '12px'}}>
+                Skanneren bruker sikre protokoller for å hente informasjon fra Kortet uten nettverkstilkobling.
+                Enheten er laget for enkel håndtering i nødsituasjoner.
+              </p>
+            </div>
+          </div>
+          
             <h4 style={{margin: '0 0 16px 0', color: '#e6eef8'}}>NFC-Teknologi</h4>
             <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+          
               Near Field Communication (NFC) er en teknologi brukt for trådløs deling av små mengder data mellom to enheter.
               NFC bruker magnetisk induksjon for kommunikasjon, som gjør at enhetene må være veldig nærme hverandre for å snakke sammen (&lt; 10cm).
               Teknologien bruker simple kommunikasjonsprotokoller, som legger til rette for raskere kommunikasjoner enn Bluetooth LE <sup>[1]</sup>
@@ -102,42 +136,17 @@ function App() {
             </div>
           </div>
 
-          <div className="solution">
-            <div className="panel" aria-label="Kortet">
-              <h4>Kortet</h4>
-              <div className="card-visual">
-                <img src="/kort.png" alt="NFC Helsekort" style={{height: '100%', objectFit: 'cover', borderRadius: '10px'}} />
-              </div>
-              <p style={{marginTop: '12px'}}>
-                Kortet er en fysisk/elektronisk enhet designet for offline-tilgang til pasientjournaler.
-                Lagring, kryptering og rask lesetilgang er sentralt.
-              </p>
-            </div>
-
-            <div className="panel" aria-label="Skanneren">
-              <h4>Skanneren</h4>
-              <div className="card-visual">
-                <img src="/workflow.png" alt="Arbeidsflyt skanner" style={{height: '100%', objectFit: 'cover', borderRadius: '10px'}} />
-              </div>
-              <p style={{marginTop: '12px'}}>
-                Skanneren bruker sikre protokoller for å hente informasjon fra Kortet uten nettverkstilkobling.
-                Enheten er laget for enkel håndtering i nødsituasjoner.
-              </p>
-            </div>
+          <div className="panel" style={{marginBottom: '20px'}}>
+            <h4 style={{margin: '0 0 16px 0', color: '#e6eef8'}}>Sikkerhet og kryptering</h4>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Persondata som full helsejournal burde ikke være tilgjengelig å lese for de som finner et helsekort. For å løse dette kan man bruke MIFARE DESFire EV2/EV3 NFC chips, produsert av NXP, brukt i blant annet kollektivtrafikk og adgangskontroll. Disse støtter krypteringsmetodene AES-128 (EV1/EV2/EV3), AES-256 (EV3).
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Med løsningen av en MIFARE DESFire kan det settes opp en master-applikasjon, og innenfor denne kan det opprettes flere filer, der typisk en fil per bruker. En backend vil holde oversikt over ID på kortet, brukerprofil, og tilhørende nøkkel (eller nøkkel avledet fra en master). Scanneren har et innebygd nøkkelsett som kan dekryptere og lese data fra hvert enkelt kort.
+            </p>
           </div>
         </section>
 
-        <section id="video">
-          <h3 style={{margin: '6px 0'}}>Demo-video</h3>
-          <div className="video">
-            <iframe
-              src="https://www.youtube.com/embed/2aCBG-5Q58w"
-              title="NasjonalKort demo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        </section>
 
         <section>
           <h3 style={{margin: '6px 0'}}>Implementering</h3>
