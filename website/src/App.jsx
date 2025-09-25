@@ -4,9 +4,6 @@ function App() {
   return (
     <div className="wrap">
       <header className="top">
-        <div className="logo" role="img" aria-label="NasjonalKort logo">
-          <span style={{fontSize: '22px'}}>NK</span>
-        </div>
         <div className="brand">
           <h1>NasjonalKort</h1>
           <p className="lead">Backupsystem for pasientjournaler i nedetid</p>
@@ -40,7 +37,42 @@ function App() {
 
       <main>
         <section>
-         
+          <div className="panel" style={{marginBottom: '20px'}}>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Forestill deg dette: Midt i et kritisk øyeblikk, når hvert eneste sekund teller, kan helsepersonell fortsatt ha umiddelbar tilgang til den aller viktigste informasjonen om pasienten. Vår løsning sørger for at livsviktig helsedata aldri går tapt, selv når ordinære journalsystemer ligger nede, for eksempel i et en nasjonal krise hvor alle ordinære systemer ligger nede.
+            </p>
+
+            <h4 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>Nasjonalt helsekort, en nøkkel til tryggere akuttmedisin</h4>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Med vårt nasjonale helsekort blir all kritisk pasientinformasjon automatisk oppdatert og lagret. Blodtype, HLR-status, organdonorkort, allergier, kroniske sykdommer, operasjonshistorikk, alt er tilgjengelig på ett sted.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Dette kortet er utviklet for de mest sårbare situasjonene: når pasienten er bevisstløs, uten ID eller ikke i stand til å kommunisere. Da kan helseteamet raskt skanne kortet og få tilgang til informasjonen som kan bety forskjellen mellom liv og død.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Feilmedisinering, allergiske sjokk og unødvendige feilbehandlinger kan forhindres, fordi riktig informasjon når frem til riktig person i tide.
+            </p>
+
+            <h4 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>Sømløs oppdatering, alltid oppdatert, alltid tilgjengelig</h4>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Kortet henter data direkte fra fastleger, private klinikker, sykehjem, sykehus og andre helseaktører. Oppdateringen skjer i sanntid, så snart et journaldokument er ferdig skrevet. Personvernet er ivaretatt: kun autorisert helsepersonell kan skanne kortet.
+            </p>
+
+            <h4 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>Case:</h4>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Møt Ola Nordmann, en 26 år gammel student. Han har diabetes type 1, bruker insulin og er allergisk mot penicillin. Blodtypen hans er A+. All informasjon som kan redde livet hans i en krisesituasjon.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              En dag blir Ola funnet bevisstløs på gaten. Ambulansen ankommer raskt, men journalsystemet er nede. Ingen vet hvem han er, ingen ID blir funnet, og uten helsekortet ville helsepersonellet stått helt uten avgjørende opplysninger.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Hvordan kan man redde et menneskeliv når all digital journaltilgang er borte? Svaret ligger i et robust, sikkert og raskt backupsystem, helsekortet som alltid fungerer, uansett hva som skjer.
+            </p>
+          </div>
+        </section>
+
+        <section>
+
           <div className="panel">
              <h3 style={{margin: '6px 0'}}>Problemstilling</h3>
             <h4>Hva skjer når strøm og internett svikter?</h4>
