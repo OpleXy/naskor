@@ -35,7 +35,6 @@ function App() {
           <p className="desc">Vår løsning sikrer tilgang til kritisk helseinformasjon selv under alvorlige driftsbrudd.</p>
         </div>
         <div className="hero-right hero-actions">
-          <div style={{textAlign: 'right', color: 'var(--muted)', fontSize: '13px'}}>Status: Prototype</div>
         </div>
       </section>
 
@@ -142,15 +141,49 @@ function App() {
 
         <section>
           <h3 style={{margin: '6px 0'}}>Implementering</h3>
-          <div className="grid-2">
-            <div className="panel">
-              <h4>Implementering</h4>
-              <div className="placeholder">Kommer</div>
+
+          <div className="panel" style={{marginBottom: '20px'}}>
+            <h4>Implementasjon i samfunnet</h4>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              All teknologi som brukes, finnes allerede, så her trenger vi bare å implementere løsningen med allerede oppfunnet teknologi.
+            </p>
+
+            <div style={{marginBottom: '16px'}}>
+              <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>Fase 1: Utrulling av kort</h5>
+              <p style={{color: 'var(--muted)', fontSize: '14px'}}>
+                Borgere får utdelt et slikt kort, med pasientjournal lagret på seg. Det er krypteringer som gjør at kun helsepersonell har tilgang til denne dataen.
+              </p>
             </div>
-            <div className="panel">
-              <h4>Er dette gjennomførbart?</h4>
-              <div className="placeholder">Kommer</div>
+
+            <div style={{marginBottom: '16px'}}>
+              <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>Fase 2: Synkronisering</h5>
+              <p style={{color: 'var(--muted)', fontSize: '14px'}}>
+                Endringer i pasientjournalen vil bli synkronisert på disse kortene i en desentralisert lagringsform (altså at det ikke er en hoveddatabase for backupsystemet).
+              </p>
             </div>
+
+            <div style={{marginBottom: '16px'}}>
+              <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>Fase 3: Kriseberedskap</h5>
+              <p style={{color: 'var(--muted)', fontSize: '14px'}}>
+                Systemet er klart for krisesituasjoner.
+              </p>
+            </div>
+
+            <div style={{background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)'}}>
+              <h5 style={{margin: '0 0 12px 0', color: '#e6eef8'}}>I en krisesituasjon:</h5>
+              <ul style={{color: 'var(--muted)', paddingLeft: '20px', fontSize: '14px', margin: '0'}}>
+                <li style={{marginBottom: '8px'}}>Ikke tilgang til synkronisering lengre, derfor skjer alt av reading og writing av dataen når pasienten gir helsekortet sitt til helsepersonell</li>
+                <li style={{marginBottom: '8px'}}>Scanneren trenger strøm, men veldig lite</li>
+                <li>Kortet krever også veldig lite strøm, men lades opp av scanninger</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="panel">
+            <h4>Er dette gjennomførbart?</h4>
+            <p style={{color: 'var(--muted)', fontSize: '14px'}}>
+              Dette systemet er teknisk gjennomførbart, men vil kreve betydelige investeringer i infrastruktur, opplæring og standardisering. Et realistisk første skritt vil være å gjennomføre et pilotprosjekt på et sykehus for å teste løsningen under reelle forhold.
+            </p>
           </div>
         </section>
 
