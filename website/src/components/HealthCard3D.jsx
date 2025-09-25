@@ -11,23 +11,19 @@ const HealthCard3D = () => {
 
   // Smart hastighetskontroll basert på rotasjonsvinkel
   const getRotationSpeed = (currentY) => {
-    // Normaliser vinkelen til 0-360
     const normalizedY = ((currentY % 360) + 360) % 360;
-    
-    // Beregn hvor langt unna vi er fra forside/bakside (0°, 180°)
     const distanceFromMainView = Math.min(
       Math.abs(normalizedY - 0),
       Math.abs(normalizedY - 180),
       Math.abs(normalizedY - 360)
     );
     
-    // Hastighet er høyere når vi er lengre fra hovedvisningene
     if (distanceFromMainView < 30) {
-      return 0.3; // Sakte nær forside/bakside
+      return 0.3;
     } else if (distanceFromMainView < 60) {
-      return 0.6; // Medium hastighet
+      return 0.6;
     } else {
-      return 1.2; // Raskt gjennom kortsidene
+      return 1.2;
     }
   };
 
@@ -43,7 +39,7 @@ const HealthCard3D = () => {
     const deltaX = e.clientX - startMouse.x;
     const deltaY = e.clientY - startMouse.y;
     
-    const speed = 0.5; // Konstant hastighet for manuell kontroll
+    const speed = 0.5;
     const newY = (startRotation.y + deltaX * speed) % 360;
     const newX = Math.max(-90, Math.min(90, startRotation.x - deltaY * 0.3));
     
@@ -109,7 +105,7 @@ const HealthCard3D = () => {
       lastTime = currentTime;
       
       setRotation(prev => {
-        const speed = getRotationSpeed(prev.y) * (deltaTime / 16); // Normalisert til 60fps
+        const speed = getRotationSpeed(prev.y) * (deltaTime / 16);
         return {
           x: prev.x,
           y: (prev.y + speed) % 360
@@ -145,21 +141,29 @@ const HealthCard3D = () => {
             transition: isDragging ? 'none' : 'transform 0.1s ease-out'
           }}
         >
-          {/* Forside med 1.png */}
+          {/* Forside med 2.png */}
           <div className="card-side card-front">
             <img 
-              src="/1.png" 
+              src="/2.png" 
               alt="Forside av helsekortet" 
               className="card-image"
+              onError={(e) => {
+                console.log('Feil ved lasting av forsidebilde, prøver fallback');
+                e.target.src = '/kort/forside.png';
+              }}
             />
           </div>
           
-          {/* Bakside med 2.png */}
+          {/* Bakside med 1.png */}
           <div className="card-side card-back">
             <img 
-              src="/2.png" 
+              src="/1.png" 
               alt="Bakside av helsekortet" 
               className="card-image"
+              onError={(e) => {
+                console.log('Feil ved lasting av baksidebilde, prøver fallback');
+                e.target.src = '/kort/bakside.png';
+              }}
             />
           </div>
         </div>
