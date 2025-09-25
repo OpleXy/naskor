@@ -39,7 +39,7 @@ function App() {
         <section>
           <div className="panel" style={{marginBottom: '20px'}}>
             <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
-              Forestill deg dette: Midt i et kritisk øyeblikk, når hvert eneste sekund teller, kan helsepersonell fortsatt ha umiddelbar tilgang til den aller viktigste informasjonen om pasienten. Vår løsning sørger for at livsviktig helsedata aldri går tapt, selv når ordinære journalsystemer ligger nede, for eksempel i et en nasjonal krise hvor alle ordinære systemer ligger nede.
+              Forestill deg dette: Midt i et kritisk øyeblikk, når hvert eneste sekund teller, kan helsepersonell fortsatt ha umiddelbar tilgang til den aller viktigste informasjonen om pasienten. Vår løsning sørger for at livsviktig helsedata aldri går tapt, selv når ordinære journalsystemer ligger nede, for eksempel i en nasjonal krise hvor alle ordinære systemer ligger nede.
             </p>
 
             <h4 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>Nasjonalt helsekort, en nøkkel til tryggere akuttmedisin</h4>
@@ -180,8 +180,7 @@ function App() {
         </section>
 
 
-        <section>
-          <h3 style={{margin: '6px 0'}}>Implementering</h3>
+
 
           <div className="panel" style={{marginBottom: '20px'}}>
             <h4>Implementasjon i samfunnet</h4>
@@ -226,13 +225,35 @@ function App() {
               Dette systemet er teknisk gjennomførbart, men vil kreve betydelige investeringer i infrastruktur, opplæring og standardisering. Et realistisk første skritt vil være å gjennomføre et pilotprosjekt på et sykehus for å teste løsningen under reelle forhold.
             </p>
           </div>
-        </section>
+
 
         <section>
           <h3 style={{margin: '6px 0'}}>Bildegalleri</h3>
-          <div className="gallery" aria-label="Bildegalleri med plassholdere">
-            <div className="thumb">Bilde 1</div>
-            <div className="thumb">Bilde 2</div>
+          <div className="gallery" aria-label="Bildegalleri med videoer og bilder">
+            <div className="thumb">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/RzFYEBIIUWU"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{borderRadius: '8px'}}
+              ></iframe>
+            </div>
+            <div className="thumb">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/S85ID4uCkdw"
+                title="YouTube Shorts video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{borderRadius: '8px'}}
+              ></iframe>
+            </div>
             <div className="thumb">Bilde 3</div>
             <div className="thumb">Bilde 4</div>
             <div className="thumb">Bilde 5</div>
@@ -252,8 +273,13 @@ function App() {
           </div>
 
           <div>
-            <div className="small"><strong>Medlemmer</strong></div>
-            <p className="small" style={{margin: '8px 0'}}>Cyber Criminals — Team NasjonalKort</p>
+            <div className="small"><strong>Medlemmer:</strong></div>
+            <ul className="small" style={{margin: '8px 0 0 18px', padding: '0'}}>
+              <li>Oliver Kabicek</li>
+              <li>Julianne Murbrekk</li>
+              <li>Fredrik Andreassen Paulsen</li>
+              <li>Even Rygh</li>
+            </ul>
           </div>
 
           <div>
@@ -263,7 +289,7 @@ function App() {
         </div>
 
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px', flexWrap: 'wrap'}}>
-          <div className="small">© 2025 NasjonalKort — Cyber Criminals</div>
+          <div className="small">Cyber Criminals</div>
           <div style={{display: 'flex', gap: '12px', alignItems: 'center'}}>
             <a href="https://github.com/OpleXy/naskor/" target="_blank" rel="noopener" aria-label="GitHub repository">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
