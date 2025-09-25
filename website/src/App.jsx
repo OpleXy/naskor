@@ -70,117 +70,93 @@ function App() {
           </div>
           <p className="section-intro">Løsningen består av to hovedkomponenter som arbeider sammen for å sikre tilgang til kritisk helseinformasjon:</p>
 
-          <div className="tech-explanation">
-            <h3>NFC-Teknologi</h3>
-            <p>Near Field Communication (NFC) er en teknologi brukt for trådløs deling av små mengder data mellom to enheter. NFC bruker magnetisk induksjon for kommunikasjon, som gjør at enhetene må være veldig nærme hverandre for å snakke sammen (&lt; 10cm). Teknologien bruker simple kommunikasjonsprotokoller, som legger til rette for raskere kommunikajon enn Bluetooth LE <sup>[1]</sup></p>
+          <div className="tech-explanation-widget">
+            <div className="tech-explanation-content">
+              <h3>NFC-Teknologi</h3>
+              <p>Near Field Communication (NFC) er en teknologi brukt for trådløs deling av små mengder data mellom to enheter. NFC bruker magnetisk induksjon for kommunikasjon, som gjør at enhetene må være veldig nærme hverandre for å snakke sammen (&lt; 10cm). Teknologien bruker simple kommunikasjonsprotokoller, som legger til rette for raskere kommunikasjoner enn Bluetooth LE <sup>[1]</sup></p>
 
-            <h4>Scanner + Kort</h4>
-            <ul>
-              <li>Scanneren skaper et elektromagnetisk felt på 13.56MHz <sup>[2]</sup></li>
-              <li>NFC-kortet har en antennespole som fanger feltet</li>
-              <li>Energien i feltet aktiverer kortet og gir det nok strøm til å sende data tilbake</li>
-              <li>Ingen batteri eller ekstern strøm er nødvendig for kortet</li>
-              <li>Scanneren må ha et batteri, evt. solcelle</li>
-            </ul>
+              <h4>Scanner + Kort</h4>
+              <ul>
+                <li>Scanneren skaper et elektromagnetisk felt på 13.56MHz <sup>[2]</sup></li>
+                <li>NFC-kortet har en antennespole som fanger feltet</li>
+                <li>Energien i feltet aktiverer kortet og gir det nok strøm til å sende data tilbake</li>
+                <li>Ingen batteri eller ekstern strøm er nødvendig for kortet</li>
+                <li>Scanneren må ha et batteri, evt. solcelle</li>
+              </ul>
 
-            <h4>Lagringskapasitet og Løsning</h4>
-            <p>Problemet ligger i at NFC har begrenset lagringskapasitet. Her vil ikke hele pasientjournalen få plass, kun data opptil <sup>[3]</sup>:</p>
-            <ul>
-              <li>144 bytes for NTAG213</li>
-              <li>504 bytes for NTAG215</li>
-              <li>888 bytes for NTAG216</li>
-            </ul>
+              <h4>Lagringskapasitet og Løsning</h4>
+              <p>Problemet ligger i at NFC har begrenset lagringskapasitet. Her vil ikke hele pasientjournalen få plass, kun data opptil <sup>[3]</sup>:</p>
+              <ul>
+                <li>144 bytes for NTAG213</li>
+                <li>504 bytes for NTAG215</li>
+                <li>888 bytes for NTAG216</li>
+              </ul>
 
-            <p>En komplett helsejournal med røntgenbilder, lab-resultater og historikk kan være opptil flere MB. Dette kan løses med en hybrid NFC og Micro-SD løsning, der når NFC-chippen oppdager en kobling, så vil den våkne, og kobler seg videre til en intern micro SD. En egenlaget ASIC (Application Specific Integrated Circuit) vil lese data fra SD-kortet, og data sendes tilbake via NFC til scanneren, som har en integrert LCD skjerm. Komplett journal vil vises på scanneren.</p>
+              <p>En komplett helsejournal med røntgenbilder, lab-resultater og historikk kan være opptil flere MB. Dette kan løses med en hybrid NFC og Micro-SD løsning, der når NFC-chippen oppdager en kobling, så vil den våkne, og kobler seg videre til en intern micro SD. En egenlaget ASIC (Application Specific Integrated Circuit) vil lese data fra SD-kortet, og data sendes tilbake via NFC til scanneren, som har en integrert LCD skjerm. Komplett journal vil vises på scanneren.</p>
 
-            <h4>Sync av kort (automatisk løsning)</h4>
-            <p>Før problemet med at strøm og internett går ned, så er det viktig at dette kortet kontinuerlig holdes oppdatert. Dette kan løses på flere måter:</p>
-            <ul>
-              <li>Ved legekontor/sykehus/apotek besøk kan det skrives ny data til kortet</li>
-              <li>Hjemmestasjoner: Legg NFC-kort på en base som er koblet til helse-IT infrastruktur, syncer over natten</li>
-              <li>Telefon: Hold kortet mot telefon, app kobler til helsenorge.no, laster ned ny data til kort</li>
-            </ul>
+              <h4>Sync av kort (automatisk løsning)</h4>
+              <p>Før problemet med at strøm og internett går ned, så er det viktig at dette kortet kontinuerlig holdes oppdatert. Dette kan løses på flere måter:</p>
+              <ul>
+                <li>Ved legekontor/sykehus/apotek besøk kan det skrives ny data til kortet</li>
+                <li>Hjemmestasjoner: Legg NFC-kort på en base som er koblet til helse-IT infrastruktur, syncer over natten</li>
+                <li>Telefon: Hold kortet mot telefon, app kobler til helsenorge.no, laster ned ny data til kort</li>
+              </ul>
 
-            <div className="references">
-              <p><sup>[1]</sup> <a href="https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/protocols/nfc/index.html" target="_blank" rel="noopener noreferrer">Nordic Semiconductor - NFC Protocols</a></p>
-              <p><sup>[2]</sup> <a href="https://nfc-forum.org/build/specifications" target="_blank" rel="noopener noreferrer">NFC Forum Specifications</a></p>
-              <p><sup>[3]</sup> <a href="https://www.asiarfid.com/difference-ntag213-ntag215-ntag216.html" target="_blank" rel="noopener noreferrer">NTAG Specifications</a></p>
+              <div className="references">
+                <p><sup>[1]</sup> <a href="https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/protocols/nfc/index.html" target="_blank" rel="noopener noreferrer">Nordic Semiconductor - NFC Protocols</a></p>
+                <p><sup>[2]</sup> <a href="https://nfc-forum.org/build/specifications" target="_blank" rel="noopener noreferrer">NFC Forum Specifications</a></p>
+                <p><sup>[3]</sup> <a href="https://www.asiarfid.com/difference-ntag213-ntag215-ntag216.html" target="_blank" rel="noopener noreferrer">NTAG Specifications</a></p>
+              </div>
             </div>
           </div>
 
+          <div className="tech-widgets">
+            <div className="tech-widget left-widget">
+              <h3>NFC-Kortet - Desentralisert Datalagring</h3>
+              <p>Et kort som fungerer som pasientjournal, der helseinformasjon kan lagres og oppdateres, og kan leses og skrives til av en håndholdt skanner.</p>
 
-          <div className="tech-tabs">
-            <button
-              className={`tech-tab ${activeTab === 'kort' ? 'active' : ''}`}
-              onClick={() => setActiveTab('kort')}
-            >
-              NFC Kort
-            </button>
-            <button
-              className={`tech-tab ${activeTab === 'skanner' ? 'active' : ''}`}
-              onClick={() => setActiveTab('skanner')}
-            >
-              Read&Write (Skanner)
-            </button>
-          </div>
+              <p>Kortet fungerer som en bærbar pasientjournal, hvor helseinformasjon kan lagres og oppdateres på en sikker og effektiv måte. Det er designet for å være uavhengig av strøm og internett, og kan leses og skrives til av en håndholdt scanner.</p>
 
-          {activeTab === 'kort' && (
-            <div className="tech-content">
-              <div className="nfc-card-description">
-                <h3>NFC-Kortet - Desentralisert Datalagring</h3>
-                <p>Et kort som fungerer som pasientjournal, der helseinformasjon kan lagres og oppdateres, og kan leses og skrives til av en håndholdt skanner.</p>
+              <div className="key-benefits">
+                <h4>Selvforsynt System</h4>
+                <p>NFC-teknologien gir kortet energi direkte fra scanneren, noe som gjør det selvforsynt uten behov for batterier eller ekstern strømtilførsel.</p>
+              </div>
 
-                <p>Kortet fungerer som en bærbar pasientjournal, hvor helseinformasjon kan lagres og oppdateres på en sikker og effektiv måte. Det er designet for å være uavhengig av strøm og internett, og kan leses og skrives til av en håndholdt scanner. Ved hjelp av NFC-teknologi (Near Field Communication) kan kortet overføre data til scanneren når det kommer i nærkontakt med den.</p>
+              <h4>Sync av Kort</h4>
+              <ul className="tech-detail-list">
+                <li><strong>Ved legekontor/sykehus/apotek besøk:</strong> Ny data kan skrives til kortet.</li>
+                <li><strong>Hjemmestasjoner:</strong> Legg NFC-kortet på en base som er koblet til helse-IT infrastruktur.</li>
+                <li><strong>Telefon:</strong> Hold kortet mot telefonen, appen kobler til helsenorge.no.</li>
+              </ul>
 
-                <div className="key-benefits">
-                  <h4>Selvforsynt System</h4>
-                  <p>NFC-teknologien gir kortet energi direkte fra scanneren, noe som gjør det selvforsynt uten behov for batterier eller ekstern strømtilførsel. Når man scanner kortet med scanneren blir kortet ladet opp.</p>
-                </div>
+              <div className="widget-image">
+                <img src="/kort/forside.png" alt="Forside av helsekort" />
+                <p className="widget-label">NFC Helsekort</p>
+              </div>
+            </div>
 
-                <h4>Sync av Kort (Automatisk Løsning)</h4>
-                <p>Før strøm og internett går ned, er det viktig at kortet kontinuerlig holdes oppdatert. Dette kan løses på flere måter:</p>
-                <ul className="tech-detail-list">
-                  <li><strong>Ved legekontor/sykehus/apotek besøk:</strong> Ny data kan skrives til kortet.</li>
-                  <li><strong>Hjemmestasjoner:</strong> Legg NFC-kortet på en base som er koblet til helse-IT infrastruktur, og synkroniserer over natten.</li>
-                  <li><strong>Telefon:</strong> Hold kortet mot telefonen, appen kobler til helsenorge.no og laster ned ny data til kortet.</li>
+            <div className="tech-widget right-widget">
+              <h3>Skanneren - Read & Write Enhet</h3>
+              <p>Scanneren er en håndholdt enhet som helsepersonell kan bruke til å lese og oppdatere pasientdata lagret på NFC-kortet. Den er utstyrt med en NFC-leser som gjør det mulig å kommunisere trådløst med kortet.</p>
+
+              <div className="scanner-features">
+                <h4>Tekniske Egenskaper</h4>
+                <ul>
+                  <li><strong>Selvforsynt:</strong> Innebygd batteri som kan lades via solcellepanel eller tradisjonell lading</li>
+                  <li><strong>Brukervennlig:</strong> Enkelt display og tastatur for enkel navigering</li>
+                  <li><strong>Lokal lagring:</strong> Midlertidig lagring av pasientdata</li>
+                  <li><strong>Mesh-nettverk:</strong> Kan synkroniseres mellom flere enheter når internett og strøm er tilbake</li>
                 </ul>
               </div>
 
+              <p>Dette gjør scanneren til et effektivt verktøy i nødsituasjoner der tradisjonelle datanettverk ikke er tilgjengelige.</p>
 
-              <div className="card-examples">
-                <div className="card-image">
-                  <img src="/kort/forside.png" alt="Forside av helsekort" />
-                  <p className="card-label">Forside</p>
-                </div>
-                <div className="card-image">
-                  <img src="/kort/bakside.png" alt="Bakside av helsekort" />
-                  <p className="card-label">Bakside</p>
-                </div>
+              <div className="widget-image">
+                <img src="/scanner.png" alt="NasjonalKort skanner" />
+                <p className="widget-label">NFC Skanner</p>
               </div>
             </div>
-          )}
-
-          {activeTab === 'skanner' && (
-            <div className="tech-content">
-              <div className="scanner-description">
-                <h3>Skanneren - Read & Write Enhet</h3>
-                <p>Scanneren er en håndholdt enhet som helsepersonell kan bruke til å lese og oppdatere pasientdata lagret på NFC-kortet. Den er utstyrt med en NFC-leser som gjør det mulig å kommunisere trådløst med kortet ved hjelp av elektromagnetiske bølger.</p>
-
-                <div className="scanner-features">
-                  <h4>Tekniske Egenskaper</h4>
-                  <ul>
-                    <li><strong>Selvforsynt:</strong> Innebygd batteri som kan lades via solcellepanel eller tradisjonell lading</li>
-                    <li><strong>Brukervennlig:</strong> Enkelt display og tastatur for enkel navigering</li>
-                    <li><strong>Lokal lagring:</strong> Midlertidig lagring av pasientdata</li>
-                    <li><strong>Mesh-nettverk:</strong> Kan synkroniseres mellom flere enheter når internett og strøm er tilbake</li>
-                  </ul>
-                </div>
-
-                <p>Dette gjør scanneren til et effektivt verktøy i nødsituasjoner der tradisjonelle datanettverk ikke er tilgjengelige.</p>
-
-              </div>
-            </div>
-          )}
+          </div>
         </section>
 
         <section id="implementation" className="section">
