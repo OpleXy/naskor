@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=390, height=844, user-scalable=no">
+    <title>Medisinsk Skanner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #f8f9fb;
+            width: 390px;
+            height: 844px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .app-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border-radius: 0;
+            margin: 0;
+            box-shadow: none;
+            overflow: hidden;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            height: 44px;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 0.5px solid #e5e7eb;
+        }
+
+        .time {
+            color: #1f2937;
+            font-weight: 700;
+        }
+
+        .status-icons {
+            display: flex;
+            gap: 5px;
+            color: #1f2937;
+            font-size: 12px;
+        }
+
+        /* SCANNING VIEW */
+        .scanning-view {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .scanning-view.active {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+        }
+
+        .scanning-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .scanning-icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+            background: #0ea5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+            animation: nfc-pulse 2s infinite;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes nfc-pulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4);
+            }
+            50% { 
+                transform: scale(1.1);
+                box-shadow: 0 0 0 30px rgba(14, 165, 233, 0);
+            }
+        }
+
+        .scanning-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .scanning-subtitle {
+            font-size: 18px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* PATIENT VIEW */
+        .patient-view {
+            flex: 1;
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .patient-view.active {
+            display: flex;
+        }
+
+        /* Main Header */
+        .main-header {
+            padding: 24px 20px 20px;
+            background: linear-gradient(180deg, #003d82 0%, #0056b3 100%);
+            color: white;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .main-title {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .back-btn:active {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Patient Info Card */
+        .patient-card {
+            margin: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: #f9fafb;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .patient-id {
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .scan-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .patient-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .patient-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .info-value.critical {
+            color: #dc2626;
+            font-weight: 700;
+        }
+
+        .info-value.warning {
+            color: #d97706;
+            font-weight: 700;
+        }
+
+        /* Medical Alerts */
+        .medical-alerts {
+            border-top: 1px solid #fee2e2;
+            background: linear-gradient(90deg, #fef2f2 0%, #fff5f5 100%);
+            padding: 16px 20px;
+        }
+
+        .alert-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .alert-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #dc2626;
+        }
+
+        .alert-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .alert-critical {
+            background: #dc2626;
+            color: white;
+        }
+
+        .alert-warning {
+            background: #d97706;
+            color: white;
+        }
+
+        .alert-med {
+            background: #059669;
+            color: white;
+        }
+
+        .alert-content {
+            flex: 1;
+        }
+
+        .alert-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 2px;
+        }
+
+        .alert-desc {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* Emergency Contact */
+        .emergency-contact {
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 0 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: #2563eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-number {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2563eb;
+            font-family: 'SF Mono', monospace;
+        }
+
+        .call-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .call-btn:active {
+            background: #1d4ed8;
+        }
+
+        /* Health Card Action */
+        .health-card-section {
+            margin: 0 20px 20px;
+        }
+
+        .health-card-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .health-card-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Security Footer */
+        .security-footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .security-icon {
+            width: 16px;
+            height: 16px;
+            background: #059669;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="time">09:41</div>
+            <div class="status-icons">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2 20h20v-8H2v8zm0-10h20V8H2v2zm0-4h20V4H2v2zM4 17h2v-2H4v2zm0-4h2v-2H4v2zm0-4h2V7H4v2zm4 8h12v-2H8v2zm0-4h12v-2H8v2zm0-4h12V7H8v2z"/>
+                </svg>
+                <span>🔋 98%</span>
+            </div>
+        </div>
+
+        <!-- SCANNING VIEW (Initial State) -->
+        <div class="scanning-view" id="scanningView">
+            <div class="scanning-content">
+                <div class="scanning-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M2 20h20v-8H2v8zm0-10h20V8H2v2zm0-4h20V4H2v2zM4 17h2v-2H4v2zm0-4h2v-2H4v2zm0-4h2V7H4v2zm4 8h12v-2H8v2zm0-4h12v-2H8v2zm0-4h12V7H8v2z"/>
+                    </svg>
+                </div>
+                <div class="scanning-title">Skanning aktiv...</div>
+                <div class="scanning-subtitle">Hold pasientkort eller ID her</div>
+            </div>
+        </div>
+
+        <!-- PATIENT VIEW (Hidden Initially) -->
+        <div class="patient-view" id="patientView">
+            <!-- Main Header -->
+            <div class="main-header">
+                <div class="header-content">
+                    <h1 class="main-title">MEDISINSK SKANNER</h1>
+                    <button class="back-btn" id="backBtn">← Tilbake</button>
+                </div>
+            </div>
+
+            <!-- Patient Info Card -->
+            <div class="patient-card">
+                <div class="card-header">
+                    <div class="patient-id">Pasient-ID: HN-2024-001</div>
+                    <div class="scan-status">
+                        <div class="status-indicator"></div>
+                        <span>Verifisert</span>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="patient-name">Ola Normann</div>
+                    
+                    <div class="patient-grid">
+                        <div class="info-item">
+                            <div class="info-label">Personnummer</div>
+                            <div class="info-value">10059936553</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Blodtype</div>
+                            <div class="info-value">A+ RhD Positiv</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Sist oppdatert</div>
+                            <div class="info-value">25.09.2025</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Status</div>
+                            <div class="info-value critical">Høy prioritet</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Alerts -->
+                <div class="medical-alerts">
+                    <div class="alert-grid">
+                        <div class="alert-item">
+                            <div class="alert-icon alert-critical">!</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Kritisk tilstand</div>
+                                <div class="alert-desc">Diabetes type 1 - Krever konstant overvåking</div>
+                            </div>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon alert-warning">⚠</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Allergi</div>
+                                <div class="alert-desc">Penicillin - Alvorlig reaksjon</div>
+                            </div>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon alert-med">Rx</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Aktiv medisinering</div>
+                                <div class="alert-desc">Insulin 20u - Daglig administrering</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Contact -->
+            <div class="emergency-contact">
+                <div class="contact-info">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <div class="contact-label">Nødkontakt</div>
+                        <div class="contact-number">912 34 567</div>
+                    </div>
+                </div>
+                <button class="call-btn">Ring</button>
+            </div>
+
+            <!-- Health Card Action -->
+            <div class="health-card-section">
+                <button class="health-card-btn">
+                    🏥 Loggfør på helsekort
+                </button>
+            </div>
+
+            <!-- Security Footer -->
+            <div class="security-footer">
+                <div class="security-icon">🔒</div>
+                <span>Kryptert forbindelse - Helsenorge Sikker Terminal</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scanningView = document.getElementById('scanningView');
+            const patientView = document.getElementById('patientView');
+            const backBtn = document.getElementById('backBtn');
+
+            // Switch to patient view when scanning area is clicked
+            scanningView.addEventListener('click', function() {
+                // Add scanning animation
+                this.classList.add('active');
+                
+                // Switch views after a short delay
+                setTimeout(() => {
+                    scanningView.style.display = 'none';
+                    patientView.classList.add('active');
+                }, 800);
+            });
+
+            // Back to scanning view
+            backBtn.addEventListener('click', function() {
+                patientView.classList.remove('active');
+                scanningView.style.display = 'flex';
+                scanningView.classList.remove('active');
+            });
+
+            // Professional button interactions
+            const buttons = document.querySelectorAll('.call-btn, .health-card-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.style.opacity = '0.8';
+                    setTimeout(() => {
+                        this.style.opacity = '';
+                    }, 100);
+                });
+            });
+
+            // Health card button interaction
+            const healthCardBtn = document.querySelector('.health-card-btn');
+            if (healthCardBtn) {
+                healthCardBtn.addEventListener('click', function() {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '✅ Lagret på helsekort';
+                    this.style.background = 'linear-gradient(135deg, #059669 0%, #047857 100%)';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                    }, 2000);
+                });
+            }
+
+            // System status updates (simulated)
+            setInterval(() => {
+                const statusDots = document.querySelectorAll('.status-indicator');
+                statusDots.forEach(dot => {
+                    dot.style.opacity = '0.3';
+                    setTimeout(() => {
+                        dot.style.opacity = '1';
+                    }, 200);
+                });
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

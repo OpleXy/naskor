@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git branch:*)",
       "Bash(npx create-react-app:*)",
-      "Bash(npm start)"
+      "Bash(npm start)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
