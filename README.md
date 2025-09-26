@@ -1,86 +1,103 @@
-# Beredskapssystem for Helsesektor ved Strøm- og Internettbortfall
+# NasjonalKort  
+**Backupsystem for pasientjournaler i nedetid**  
 
-## Prosjektbeskrivelse
-
-Dette prosjektet er vårt bidrag til oppgavealternativ 1 i *Your Extreme 2025*. Vi utvikler et beredskapssystem som sikrer helsevesenet og kritisk helseinformasjon under omfattende strøm- og internettbortfall. Løsningen skal fungere uten strøm, mobilnett og internett, og gi helsepersonell tilgang til nødvendige pasientjournaler og medisinske data under ekstreme forhold.
-
-## Problemstilling
-
-I tilfelle en katastrofe som fører til at strøm, internett, mobilnett og GPS-systemer svikter i flere dager, mister samfunnet tilgang til kritisk informasjon og kommunikasjon. Målet vårt er å utvikle et robust og gjennomførbart beredskapssystem som kan opprettholde helsevesenets funksjoner under slike krisesituasjoner.
-
-## Teknologi og Løsning
-
-Løsningen består av to hovedkomponenter:
-
-### 1. Desentralisert Datalagring
-Et kort som fungerer som en pasientjournal, hvor helseinformasjonen kan lagres og oppdateres, og som kan leses og skrives til av en håndholdt scanner.
-
-### 2. Scanner
-En håndholdt enhet som helsepersonell kan bruke til å lese og oppdatere pasientdata på kortet, selv uten tilgang til strøm eller internett.
+Bidrag fra **Cyber Criminals** til *Your Extreme 2025 – Oppgave 1*  
 
 ---
 
-### Datalagringsteknologier for Kortet
+## Introduksjon  
+Midt i et kritisk øyeblikk, når hvert eneste sekund teller, kan helsepersonell fortsatt ha tilgang til livsviktig pasientinformasjon – selv når ordinære journalsystemer ligger nede.  
 
-#### NFC-kort (Near Field Communication)
-- Lagrer 4-8KB med data (nok til kritisk helseinformasjon).
-- Krever ikke strøm, får energi fra scanneren.
-- Teknologi som brukes i bankkort og kollektivkort.
-
-#### RFID UHF-brikker
-- Større rekkevidde og kan lagre mer data enn NFC.
-- Fungerer uten batteri, og kan kommunisere på avstand.
-
-#### Bluetooth Low Energy (BLE) Beacons
-- Lagrer mer data og har lang batterilevetid.
-- Krever kryptering for sikkerhet.
+**NasjonalKort** er vår løsning: et robust og raskt backupsystem for pasientjournaler.  
+Løsningen sikrer at blodtype, allergier, kroniske sykdommer, HLR-status, organdonorkort og annen kritisk informasjon alltid er tilgjengelig – uansett situasjon.  
 
 ---
 
-### Teknologi for Scanner
-
-#### Håndholdt Enhet med:
-- NFC/RFID-leser/skriver.
-- Lokal datalagring (SSD).
-- Lang batterilevetid, med solcellepanel for lading.
-- Enkel display og tastatur.
-- Mesh-nettverk mellom scannere for lokal synkronisering.
+## Problemstilling  
+**Hva skjer når strøm og internett svikter?**  
+Hvordan sikrer man at helsepersonell fortsatt har tilgang til kritisk helseinformasjon når alle ordinære systemer er utilgjengelige?  
 
 ---
 
-## Hvordan Samfunnet Kan Forberede Seg
+## Løsning  
+### 1. NFC Helsekort  
+- Fysisk/elektronisk kort for offline tilgang til pasientjournal.  
+- Lagrer, krypterer og leverer informasjon raskt.  
+- Ingen batteri nødvendig, aktiveres av skannerens felt.  
 
-- **Bruk av høyteknologi**: Implementering av NFC- eller RFID-kort med kritiske medisinske data som kan oppdateres i planleggingsfasen.
-- **KI og Datasystemer**: Bruk av AI-verktøy for å analysere helse- og forsyningssituasjoner og forberede helsesystemene på kriser.
-- **Opplæring**: Utdanning og trening av helsepersonell for å håndtere situasjoner uten strøm og internett.
-- **Ressursplanlegging**: Sørge for at nødvendige ressurser som scannere og datakort er tilgjengelig før krisen.
+### 2. Skanneren  
+- Henter informasjon fra kortet uten nettverkstilkobling.  
+- Har integrert skjerm for visning av pasientjournal.  
+- Brukervennlig og designet for nødsituasjoner.  
 
----
+### 3. NFC-teknologi  
+- Basert på **Near Field Communication (NFC)** (< 10 cm rekkevidde).  
+- Rask og sikker overføring.  
+- Kombineres med micro-SD for å håndtere større journaler.  
 
-## Hvordan Samfunnet Handler i Krisen
-
-- **Praktiske, lavteknologiske løsninger**: Når internett og strøm går ned, vil helsepersonell bruke håndholdte scannere og kort for å få tilgang til og oppdatere pasientinformasjon.
-- **Menneskedrevne løsninger**: Organisering av lokale frivillige for å hjelpe med koordinering og ressursdeling.
-- **Off-line kommunikasjon**: Implementering av en lokal mesh-nettverksløsning mellom scannere for å synkronisere data når internett og strøm er tilbake.
-
----
-
-## Hvordan Organisere Ressurser og Roller
-
-- **Nødvendige ressurser**: Scannere, datakort, opplæring av helsepersonell og teknisk støtte.
-- **Roller**: Definere klare roller for helsepersonell, frivillige, og teknisk støttepersonell for å sikre effektiv respons.
-- **Koordinering**: Lokal og regional koordinering av helsepersonell og frivillige for å håndtere situasjonen.
-
----
-
-## Samarbeid med Naboland og Lokalsamfunn
-
-- **Politisk samarbeid**: Koordinere beredskapstiltak på nasjonalt nivå for å sikre ressurser og støtte.
-- **Ressursdeling**: Samarbeid mellom naboland for å dele nødvendige ressurser, som medisinske forsyninger og personell.
-- **Lokalsamfunnsengasjement**: Aktivt involvere lokalsamfunnene i kriseberedskap, inkludert opplæring og ressurshåndtering.
+### 4. Synkronisering  
+- Oppdatering skjer automatisk gjennom:  
+  - Fastlege, sykehus eller apotek  
+  - Hjemmestasjon med base  
+  - Mobilapp koblet til helsenorge.no  
 
 ---
 
-## Gjennomførbarhet
+## Sikkerhet og kryptering  
+- Bruk av **MIFARE DESFire EV2/EV3 NFC-chips** (AES-128/AES-256).  
+- Master-applikasjon + backend med nøkkelstyring.  
+- Kun autorisert helsepersonell får tilgang.  
 
-Dette systemet er teknisk gjennomførbart, men vil kreve betydelig investering i infrastruktur, opplæring og standardisering. Et realistisk første steg vil være å gjennomføre et pilotprosjekt på et sykehus for å teste løsningen under reelle forhold.
+---
+
+## Implementering  
+1. **Utrulling av kort** – Alle borgere får kort med kryptert pasientjournal.  
+2. **Synkronisering** – Oppdateres løpende i en desentralisert modell.  
+3. **Kriseberedskap** – Fullt operativt selv uten strøm og nett.  
+
+---
+
+## Eksempel-case  
+**Ola Nordmann (26 år):**  
+- Diabetes type 1  
+- Allergisk mot penicillin  
+- Blodtype A+  
+
+Ola blir funnet bevisstløs uten ID. Journalsystemet er nede.  
+Med NasjonalKort kan helsepersonell fortsatt få tilgang til informasjonen som kan redde livet hans.  
+
+---
+
+## Teknologioversikt  
+- **NFC (Near Field Communication)** – for dataoverføring  
+- **Micro-SD + ASIC** – for større journaldata  
+- **AES-128 / AES-256 kryptering** – for sikkerhet  
+- **Integrert skanner med LCD** – for visning  
+
+---
+
+## Gjennomførbarhet  
+- Teknologien eksisterer allerede i dag.  
+- Krever investering i infrastruktur, opplæring og standardisering.  
+- Realistisk første steg: **pilotprosjekt på sykehus**.  
+
+---
+
+## Team  
+**Cyber Criminals** – bidrag til Your Extreme 2025  
+
+- Oliver Kabicek  
+- Julianne Murbrekk  
+- Fredrik Andreassen Paulsen  
+- Even Rygh  
+
+Takk til fagveiledere og deltagere i Your Extreme 2025.  
+
+---
+
+## Kilder  
+1. Nordic Semiconductor – NFC Protocols  
+2. NFC Forum Specifications  
+3. NTAG Specifications  
+4. Prosjektdokumentasjon (internt)  
+5. Standarder for helsedata og kryptering  
