@@ -28,7 +28,7 @@ function App() {
 
       <div className="panel" style={{marginBottom: '20px'}}>
         <div className="hero-left">
-          <h2>Backupsystem for pasientjournaler — robust og rask</h2>
+          <h2>Backupsystem for pasientjournaler</h2>
           <p className="desc">Vår løsning sikrer tilgang til kritisk helseinformasjon selv under alvorlige driftsbrudd.</p>
         </div>
         <div className="hero-right hero-actions">
@@ -216,7 +216,7 @@ Hvordan kan man redde et menneskeliv når all digital journaltilgang er borte? S
               <ul style={{color: 'var(--muted)', paddingLeft: '20px', fontSize: '14px', margin: '0'}}>
                 <li style={{marginBottom: '8px'}}>Ikke tilgang til synkronisering lengre, derfor skjer alt av reading og writing av dataen når pasienten gir helsekortet sitt til helsepersonell</li>
                 <li style={{marginBottom: '8px'}}>Scanneren trenger strøm, men veldig lite</li>
-                <li>Kortet krever også veldig lite strøm, men lades opp av scanninger</li>
+                <li>Kortet blir aktivert av scanneren gjennom magnetisk induksjon</li>
               </ul>
             </div>
           </div>
@@ -228,9 +228,82 @@ Hvordan kan man redde et menneskeliv når all digital journaltilgang er borte? S
             </p>
           </div>
 
+        <section>
+          <div className="panel" style={{marginBottom: '20px'}}>
+            <h3 style={{margin: '6px 0'}}>Relevant juss</h3>
+
+            <h4 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>Helsepersonelloven:</h4>
+
+            <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>§ 7. Øyeblikkelig hjelp</h5>
+            <p style={{color: 'var(--muted)', marginBottom: '12px'}}>
+              Helsepersonell skal straks gi den helsehjelp de evner når det må antas at hjelpen er påtrengende nødvendig. Med de begrensninger som følger av <a href="https://lovdata.no/lov/1999-07-02-63/%C2%A74-9" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>pasient- og brukerrettighetsloven § 4-9</a>, skal nødvendig helsehjelp gis selv om pasienten ikke er i stand til å samtykke, og selv om pasienten motsetter seg helsehjelpen.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Denne løsningen skal gjøre det lettere for ambulansen å identifisere pasienten samtidig som de enklere kan sikre god og forsvarlig helsehjelp. Den kritiske informasjonen gjør jobben til helsepersonell enklere da alt er samlet på en plass der det er enkelt å innhente nødvendig informasjon.
+            </p>
+
+            <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>§ 21 a. Forbud mot urettmessig tilegnelse av taushetsbelagte opplysninger</h5>
+            <p style={{color: 'var(--muted)', marginBottom: '12px'}}>
+              Det er forbudt å lese, søke etter eller på annen måte tilegne seg, bruke eller besitte opplysninger som nevnt i <a href="https://lovdata.no/lov/1999-07-02-64/%C2%A721" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>§ 21</a> uten at det er begrunnet i helsehjelp til pasienten, administrasjon av slik hjelp eller har særskilt hjemmel i lov eller forskrift.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              I løsningen skal kun den høyst nødvendige informasjonen komme frem først for de som i den akutte situasjonen trenger denne informasjonen. Løsningen da blir at alt av journaler ligger inne på kortet, men den viktigste informasjonen ligger øverst.
+            </p>
+
+            <h4 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>Pasient og brukerrettsloven:</h4>
+
+            <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>§ 2-1. Rett til nødvendig hjelp fra kommunens helse- og omsorgstjeneste</h5>
+            <p style={{color: 'var(--muted)', marginBottom: '12px'}}>
+              Pasient og bruker har rett til øyeblikkelig hjelp fra kommunen, jf. <a href="https://lovdata.no/lov/2011-06-24-30/%C2%A73-5" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>helse- og omsorgstjenesteloven § 3-5</a>. Pasient og bruker har rett til nødvendige helse- og omsorgstjenester fra kommunen. Pasient og bruker har rett til et verdig tjenestetilbud i samsvar med <a href="https://lovdata.no/lov/2011-06-24-30/%C2%A74-1" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>helse- og omsorgstjenesteloven § 4-1</a> første ledd, bokstav b.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              I løsningen er dette viktig hvis pasienten blir sendt til legevakt der øyeblikkelig hjelp på stedet caller inn den nødvendige informasjonen legevakten trenger til å yte god og forsvarlig helsehjelp til pasienten når den kommer frem.
+            </p>
+
+            <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>§ 2-2. Rett til nødvendig helsehjelp fra spesialisthelsetjenesten</h5>
+            <p style={{color: 'var(--muted)', marginBottom: '12px'}}>
+              Pasienten har rett til øyeblikkelig helsehjelp fra spesialisthelsetjenesten, jf. <a href="https://lovdata.no/lov/1999-07-02-61/%C2%A73-1" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>spesialisthelsetjenesteloven § 3-1</a>. Retten til nødvendig helsehjelp gjelder de tjenestene som spesialisthelsetjenesten har ansvaret for å yte og finansiere, jf. spesialisthelsetjenesteloven <a href="https://lovdata.no/lov/1999-07-02-61/%C2%A72-1a" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>§§ 2-1 a</a> og <a href="https://lovdata.no/lov/1999-07-02-61/%C2%A74-4" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>4-4</a>.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              I løsningen er dette viktig hvis pasienten blir sendt til akuttmottaket der øyeblikkelig hjelp på stedet caller inn den nødvendige informasjonen akuttmottaket trenger til å yte god og forsvarlig helsehjelp til pasienten når den kommer frem.
+            </p>
+
+            <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>§ 3-1. Pasientens eller brukerens rett til medvirkning</h5>
+            <p style={{color: 'var(--muted)', marginBottom: '12px'}}>
+              Pasient eller bruker har rett til å medvirke ved gjennomføring av helse- og omsorgstjenester. Tjenestetilbudet skal så langt som mulig utformes i samarbeid med pasient eller bruker. Det skal legges stor vekt på hva pasienten eller brukeren mener ved utforming av tjenestetilbud etter helse- og omsorgstjenesteloven <a href="https://lovdata.no/lov/2011-06-24-30/%C2%A73-2" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>§§ 3-2</a>, <a href="https://lovdata.no/lov/2011-06-24-30/%C2%A73-6" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>3-6</a> og <a href="https://lovdata.no/lov/2011-06-24-30/%C2%A73-8" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>3-8</a>.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Hvis pasienten i fokus allerede har medvirket på hvordan hen ønsker at sine helse- og omsorgstjenester gjennomføres blir dette synlig når ambulansepersonell har skannet inn kortet, slik at deres autonomi blir opprettholdt.
+            </p>
+
+            <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>§ 3-2. Pasientens og brukerens rett til informasjon</h5>
+            <p style={{color: 'var(--muted)', marginBottom: '12px'}}>
+              Pasienten skal ha den informasjon som er nødvendig for å få innsikt i sin helsetilstand og innholdet i helsehjelpen. Informasjon kan unnlates dersom det er påtrengende nødvendig for å hindre fare for liv eller alvorlig helseskade for pasienten selv. Dersom pasienten eller brukeren blir påført skade eller alvorlige komplikasjoner, skal pasienten eller brukeren informeres om adgangen til å søke erstatning og å henvende seg til pasient- og brukerombudet.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              I løsningen er dette særdeles viktig da det kan være utfordrende å finne informasjon i sin egen journal. Dette kan skape en trygghet for pasienten da det lettere er å motta informasjon om sin egne helsetilstand der man kan bruke mer tid på å prosessere informasjonen som er mottatt.
+            </p>
+
+            <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>§ 3-6. Rett til vern mot spredning av opplysninger</h5>
+            <p style={{color: 'var(--muted)', marginBottom: '12px'}}>
+              Opplysninger om legems- og sykdomsforhold samt andre personlige opplysninger skal behandles i samsvar med gjeldende bestemmelser om taushetsplikt. Opplysningene skal behandles med varsomhet og respekt for integriteten til den opplysningene gjelder.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              I løsningen skal dette være kryptert slik at kun eieren av kortet og personalet som yter nødvendig helsehjelp har tilgang på denne informasjonen. Dette er slik at retten på personvern opprettholdes og opplysningene hemmeligholdes fra de som ikke har krav på denne informasjonen.
+            </p>
+
+            <h5 style={{margin: '16px 0 8px 0', color: '#e6eef8'}}>§ 5-1. Rett til innsyn i journal</h5>
+            <p style={{color: 'var(--muted)', marginBottom: '12px'}}>
+              Pasienten og brukeren har rett til innsyn i journalen sin med bilag og har etter særskilt forespørsel rett til kopi, jf. personvernforordningen artikkel 15. Nærmeste pårørende har rett til innsyn i journal etter en pasients eller brukers død, om ikke særlige grunner taler mot dette.
+            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+              Løsningen tar for seg denne paragrafen da pasienten selv kan få innsyn i det som er dokumentert på seg. Dette gjelder journaldokumenter fra fastlege, private aktører, sykehus, operasjonsbeskrivelse, og andre rapporter.
+            </p>
+          </div>
+        </section>
 
         <section>
-          <h3 style={{margin: '6px 0'}}>Bildegalleri</h3>
+          <h3 style={{margin: '6px 0'}}>Galleri</h3>
           <div className="gallery" aria-label="Bildegalleri med videoer og bilder">
             <div className="thumb">
               <iframe
