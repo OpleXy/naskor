@@ -304,8 +304,8 @@ Hvordan kan man redde et menneskeliv når all digital journaltilgang er borte? S
 
         <section>
           <h3 style={{margin: '6px 0'}}>Galleri</h3>
-          <div className="gallery" aria-label="Bildegalleri med videoer og bilder">
-            <div className="thumb">
+          <div style={{display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap'}} aria-label="Bildegalleri med videoer og bilder">
+            <div style={{width: '400px', height: '300px'}}>
               <iframe
                 width="100%"
                 height="100%"
@@ -317,7 +317,7 @@ Hvordan kan man redde et menneskeliv når all digital journaltilgang er borte? S
                 style={{borderRadius: '8px'}}
               ></iframe>
             </div>
-            <div className="thumb">
+            <div style={{width: '400px', height: '300px'}}>
               <iframe
                 width="100%"
                 height="100%"
@@ -329,10 +329,6 @@ Hvordan kan man redde et menneskeliv når all digital journaltilgang er borte? S
                 style={{borderRadius: '8px'}}
               ></iframe>
             </div>
-            <div className="thumb">Bilde 3</div>
-            <div className="thumb">Bilde 4</div>
-            <div className="thumb">Bilde 5</div>
-            <div className="thumb">Bilde 6</div>
           </div>
         </section>
       </main>
