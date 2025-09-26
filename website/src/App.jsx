@@ -5,7 +5,7 @@ function App() {
     <div className="wrap">
       <header className="top">
         <div className="brand">
-          <h1>NasjonalKort</h1>
+          <h1>NasjonalKortet</h1>
           <p className="lead">Backupsystem for pasientjournaler i nedetid</p>
           <p className="lead" style={{fontSize: '12px', marginTop: '6px', color: 'var(--muted)'}}>
             Cyber Criminals sitt bidrag til{' '}
@@ -65,9 +65,7 @@ function App() {
             <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
               En dag blir Ola funnet bevisstløs på gaten. Ambulansen ankommer raskt, men journalsystemet er nede. Ingen vet hvem han er, ingen ID blir funnet, og uten helsekortet ville helsepersonellet stått helt uten avgjørende opplysninger.
             </p>
-            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
-              Hvordan kan man redde et menneskeliv når all digital journaltilgang er borte? Svaret ligger i et robust, sikkert og raskt backupsystem, helsekortet som alltid fungerer, uansett hva som skjer.
-            </p>
+            
           </div>
         </section>
 
@@ -75,10 +73,9 @@ function App() {
 
           <div className="panel">
              <h3 style={{margin: '6px 0'}}>Problemstilling</h3>
-            <h4>Hva skjer når strøm og internett svikter?</h4>
-            <p style={{color: 'var(--muted)'}}>
-              Vår løsning sikrer tilgang til kritisk helseinformasjon selv under alvorlige driftsbrudd.
-            </p>
+            <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
+Hvordan kan man redde et menneskeliv når all digital journaltilgang er borte? Svaret ligger i et robust, sikkert og raskt backupsystem, helsekortet som alltid fungerer, uansett hva som skjer.
+</p>
           </div>
         </section>
 
@@ -116,7 +113,7 @@ function App() {
             </div>
           </div>
           
-            <h4 style={{margin: '0 0 16px 0', color: '#e6eef8'}}>NFC-Teknologi</h4>
+            <h4 style={{margin: '16px 0 16px 0', color: '#e6eef8'}}>NFC-Teknologi</h4>
             <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
           
               Near Field Communication (NFC) er en teknologi brukt for trådløs deling av små mengder data mellom to enheter.
@@ -171,11 +168,16 @@ function App() {
           <div className="panel" style={{marginBottom: '20px'}}>
             <h4 style={{margin: '0 0 16px 0', color: '#e6eef8'}}>Sikkerhet og kryptering</h4>
             <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
-              Persondata som full helsejournal burde ikke være tilgjengelig å lese for de som finner et helsekort. For å løse dette kan man bruke MIFARE DESFire EV2/EV3 NFC chips, produsert av NXP, brukt i blant annet kollektivtrafikk og adgangskontroll. Disse støtter krypteringsmetodene AES-128 (EV1/EV2/EV3), AES-256 (EV3).
+              Persondata som full helsejournal burde ikke være tilgjengelig å lese for de som finner et helsekort. For å løse dette kan man bruke MIFARE DESFire EV2/EV3 NFC chips, produsert av NXP, brukt i blant annet kollektivtrafikk og adgangskontroll. Disse støtter krypteringsmetoden AES-128 (EV2/EV3) <sup>[4][5]</sup>.
             </p>
             <p style={{color: 'var(--muted)', marginBottom: '16px'}}>
               Med løsningen av en MIFARE DESFire kan det settes opp en master-applikasjon, og innenfor denne kan det opprettes flere filer, der typisk en fil per bruker. En backend vil holde oversikt over ID på kortet, brukerprofil, og tilhørende nøkkel (eller nøkkel avledet fra en master). Scanneren har et innebygd nøkkelsett som kan dekryptere og lese data fra hvert enkelt kort.
             </p>
+
+            <div className="references" style={{fontSize: '12px', color: 'var(--muted)', marginTop: '20px'}}>
+              <p><sup>[4]</sup> <a href="https://www.nxp.com/docs/en/data-sheet/MF3DX2_MF3DHX2_SDS.pdf" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>NXP MIFARE DESFire EV2/EV3 Data Sheet</a></p>
+              <p><sup>[5]</sup> <a href="https://www.nxp.com/docs/en/application-note/AN12752.pdf" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>NXP MIFARE DESFire Application Note</a></p>
+            </div>
           </div>
         </section>
 
@@ -284,7 +286,7 @@ function App() {
 
           <div>
             <div className="small"><strong>Takk til</strong></div>
-            <p className="small" style={{margin: '8px 0'}}>Fagveiledere og deltagere i Your Extreme 2025</p>
+            <p className="small" style={{margin: '8px 0'}}>7Sense for lån av NFC-tags og kit</p>
           </div>
         </div>
 
