@@ -91,7 +91,7 @@ Med NasjonalKort kan helsepersonell fortsatt få tilgang til informasjonen som k
 - Fredrik Andreassen Paulsen  
 - Even Rygh  
 
-Takk til fagveiledere og deltagere i Your Extreme 2025.  
+Takk til 7Sense for lån av NFC-tags og kit.  
 
 ---
 
